@@ -34,6 +34,12 @@ public class Statement : MonoBehaviour {
 				Destroy(ch.gameObject);
 			}
 		}
+
+		if (opinion > 0) {
+			emitter.GetComponent<Speaker> ().playGood ();
+		} else {
+			emitter.GetComponent<Speaker> ().playBad ();
+		}
 	}
 
 	void Start () {

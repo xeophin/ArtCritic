@@ -29,6 +29,7 @@ public class Challenger : MonoBehaviour {
 		if ((transform.position - pgv.transform.position).sqrMagnitude <= maxPlayerDist * maxPlayerDist) {
 			ArtObject ao = nearbyArt(pgv);
 			if (ao != null) {
+				GetComponent<Speaker> ().playAsk ();
 				GameObject cho = (GameObject) Instantiate(challengePrefab);
 				cho.GetComponent<Challenge>().Init(ao, pgv);
 				cho.transform.position = transform.position;
