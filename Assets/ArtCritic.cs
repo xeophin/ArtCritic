@@ -9,7 +9,6 @@ public class ArtCritic : MonoBehaviour
   void Start ()
   {
     art = GameObject.Find ("art").transform;
-    Destroy (this.gameObject, 10);
   }
   // Update is called once per frame
   void Update ()
