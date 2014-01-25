@@ -50,3 +50,7 @@ TagManager:
     userID: 2
     uniqueID: 573065245
     locked: 0
+  - name: Speech
+    userID: 3
+    uniqueID: 271657757
+    locked: 0

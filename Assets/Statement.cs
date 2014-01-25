@@ -44,6 +44,8 @@ public class Statement : MonoBehaviour {
 		} else {
 			emitter.GetComponent<Speaker> ().playBad ();
 		}
+
+		transform.FindChild ("text").renderer.sortingLayerID = 3;
 	}
 
 	void Start () {
