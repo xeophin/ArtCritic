@@ -16,12 +16,13 @@ public class Statement : MonoBehaviour {
 	public float opinion; // -1 to +1
 	public List<GalleryVisitor> hasReacted = new List<GalleryVisitor>();
 
-	public void Init (ArtProperties property, string text, GalleryVisitor emitter, ArtObject topic, float opinion) {
+	public void Init (ArtProperties property, GalleryVisitor emitter, ArtObject topic, float opinion) {
 		this.property = property;
-		this.text = text;
 		this.emitter = emitter;
 		this.topic = topic;
 		this.opinion = opinion;
+		text = property.ToString () + "!";
+		this.gameObject.GetComponentInChildren<TextMesh> ().text = text;
 	}
 
 	void Start () {
