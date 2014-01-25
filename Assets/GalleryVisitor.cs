@@ -6,6 +6,7 @@ using System.Collections;
 /// </summary>
 public class GalleryVisitor : MonoBehaviour {
 	public int reputation = 100;
+	public bool randomizeRep = true;
 	public int minRep = 20;
 	public int maxRep = 100;
 
@@ -15,7 +16,9 @@ public class GalleryVisitor : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		RandomizeRep ();
+		if (randomizeRep) {
+			RandomizeRep ();
+		}
 	}
 	
 	// Update is called once per frame
