@@ -9,6 +9,7 @@ public class Opinionated : MonoBehaviour {
 	public ArtObject observed;
 	public float observationTime;
 	public float minObservationTime = 2; public float maxObservationTime = 5;
+	public float postObservationWait = 2;
 
 	void RandomizeOpinions() {
 		foreach (ArtProperties p in System.Enum.GetValues((typeof(ArtProperties)))) {
@@ -31,10 +32,11 @@ public class Opinionated : MonoBehaviour {
 			observationTime = Random.Range(minObservationTime, maxObservationTime);
 		}
 
-		if (FindObjectOfType<Statement> () == null && FindObjectOfType<Challenge> () == null) {
+		if (GetComponent<GalleryVisitor> ().CanTalk () && FindObjectOfType<Challenge> () == null) {
 			observationTime -= Time.deltaTime;
 
 			if (observationTime <= 0) {
+				gw.WaitUntilMove(postObservationWait);
 				observed = gw.observing;
 				ArtProperties commentProperty = observed.properties[Random.Range(0, observed.properties.Count)];
 				Statement st = GetComponent<StatementMaker>().State(commentProperty, observed, opinions[commentProperty]);

@@ -10,6 +10,17 @@ public class GalleryVisitor : MonoBehaviour {
 	public int minRep = 20;
 	public int maxRep = 100;
 
+	public bool CanTalk() {
+		foreach (Statement st in FindObjectsOfType<Statement>()) {
+			if (st.emitter == this) { return false; }
+			Listeners ls = st.GetComponent<Listeners> ();
+			if (!ls.found || ls.listeners.Contains(this)) {
+				return false;
+			}
+		}
+		return true;
+	}
+
 	public void RandomizeRep() {
 		reputation = Random.Range (minRep, maxRep);
 	}

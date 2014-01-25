@@ -7,7 +7,7 @@ using AssemblyCSharp;
 ///  A statement about an art object.
 /// </summary>
 public class Statement : MonoBehaviour {
-	public float lifespan = 5;
+	public float lifespan = 3.5f;
 	public Vector3 offset = new Vector3(0, 0, 0);
 
 	public ArtProperties property;

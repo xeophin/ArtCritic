@@ -14,6 +14,9 @@ public class MoveToPositionOnClick : MonoBehaviour
   void Update ()
   {
     if (Input.GetMouseButtonUp (0)) {
+		foreach (Statement st in FindObjectsOfType<Statement> ()) {
+			if (st.emitter == GetComponent<GalleryVisitor> ()) { return; }
+		}
       target = Camera.main.ScreenToWorldPoint (Input.mousePosition);
       target = new Vector3 (target.x, target.y, 0);
 		if (floor != null && floor.GetComponent<FloorArea> ().OnFloor(target.x, target.y)) {

@@ -15,7 +15,7 @@ public class Challenger : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (FindObjectOfType<Statement> () != null || FindObjectOfType<Challenge> () != null) { return; }
+		if (!GetComponent<GalleryVisitor> ().CanTalk () || FindObjectOfType<Challenge> () != null) { return; }
 
 		GalleryWanderer gw = GetComponent<GalleryWanderer> ();
 		GalleryVisitor gv = GetComponent<GalleryVisitor> ();

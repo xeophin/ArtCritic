@@ -59,6 +59,9 @@ public class InventoryOfStatements : MonoBehaviour
 
   void OnGUI ()
   {
+	if (!GetComponent<GalleryVisitor> ().CanTalk ()) {
+		return;
+	}
     // Setup GUI scaling
     oldMatrix = GUI.matrix;
     GUI.matrix = Matrix4x4.TRS (Vector3.zero, Quaternion.identity, GeneralRessources.Scale);
