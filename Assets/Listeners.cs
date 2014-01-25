@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class Listeners : MonoBehaviour {
-	public float listenRadius = 1.9f;
+	public float listenRadius = 2.8f;
 	public Vector3 offset = new Vector3 (-0.5f, 0.5f);
 	public List<GalleryVisitor> listeners = new List<GalleryVisitor>();
 	public bool found;
