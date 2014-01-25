@@ -6,16 +6,33 @@ public class InventoryOfStatements : MonoBehaviour
 {
   List<Statement> inventory;
 
-  void OnTriggerEnter (Collider other)
+  void OnTriggerEnter2D (Collider2D other)
   {
-    if (other.tag == "Visitor") {
 
+    Debug.Log ("Collisionenter");
+    if (other.gameObject.tag == "Enemy") {
+      Debug.Log ("Seeing an Enemy!");
+      other.gameObject.GetComponent<StatementMaker> ().StatementMade += HandleStatementMade;
     }
   }
 
-  void OnTriggerExit (Collider other)
+  void HandleStatementMade (object sender, StatementEventArgs e)
   {
+    inventory.Add (e.Statement);
+  }
+
+  void OnTriggerExit2D (Collider2D other)
+  {
+    if (other.gameObject.tag == "Enemy") {
+      Debug.Log ("Goodbye, enemy");
+      other.gameObject.GetComponent<StatementMaker> ().StatementMade -= HandleStatementMade;
+    }
     // When the other visitor exits listening range, remove emit event
+  }
+
+  void Awake ()
+  {
+    inventory = new List<Statement> ();
   }
 
   #region List Management

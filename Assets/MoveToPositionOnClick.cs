@@ -13,9 +13,12 @@ public class MoveToPositionOnClick : MonoBehaviour
   void Update ()
   {
     if (Input.GetMouseButtonUp (0)) {
-      target = Camera.main.ScreenToWorldPoint (Input.mousePosition);
-      target = new Vector3 (target.x, target.y, 0);
-      iTween.MoveTo (this.gameObject, target, 1f);
+      print (Event.current);
+      if (Event.current.type != EventType.Used) {
+        target = Camera.main.ScreenToWorldPoint (Input.mousePosition);
+        target = new Vector3 (target.x, target.y, 0);
+        iTween.MoveTo (this.gameObject, target, 1f);
+      }
     }
   }
 }
