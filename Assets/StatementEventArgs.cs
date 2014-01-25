@@ -2,7 +2,7 @@ using System;
 
 public class StatementEventArgs : EventArgs
 {
-  Statement statement;
+  readonly Statement statement;
 
   public Statement Statement {
     get {
