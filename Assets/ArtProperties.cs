@@ -45,7 +45,8 @@ namespace AssemblyCSharp
     Fishy,
     Fractured,
     Disturbing,
-    Nightmarish
+    Nightmarish,
+    True
   }
 }
 
