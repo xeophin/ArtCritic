@@ -3,6 +3,7 @@ using System.Collections;
 
 public class StatementResponder : MonoBehaviour {
 	public float responseDelay = 1.3f;
+	public float influence = 30;
 
 	// Use this for initialization
 	void Start () {
@@ -15,7 +16,11 @@ public class StatementResponder : MonoBehaviour {
 		GalleryVisitor gv = GetComponent<GalleryVisitor> ();
 		Statement[] sts = FindObjectsOfType<Statement> ();
 		foreach (Statement st in sts) {
-			if (st.emitter != gv && st.age >= responseDelay && !st.hasReacted.Contains(gv)) {
+			if (st.emitter != gv &&
+			    st.age >= responseDelay &&
+			    st.GetComponent<Listeners> ().listeners.Contains(gv) &&
+			    !st.hasReacted.Contains(gv))
+			{
 				st.hasReacted.Add(gv);
 				Respond(st);
 				break;
@@ -26,9 +31,14 @@ public class StatementResponder : MonoBehaviour {
 	void Respond(Statement st) {
 		float response = st.opinion * GetComponent<Opinionated> ().opinions [st.property];
 		if (response > 0) {
-			iTween.PunchPosition(this.gameObject, new Vector3(0, -0.2f, 0), 0.5f);
+			iTween.PunchPosition(this.gameObject, new Vector3(0, -0.15f, 0), 0.5f);
 		} else {
-			iTween.ShakePosition(this.gameObject, new Vector3(0.05f, 0, 0), 0.5f);
+			iTween.ShakePosition(this.gameObject, new Vector3(0.08f, 0, 0), 0.5f);
+		}
+
+		GalleryVisitor gv = GetComponent<GalleryVisitor> ();
+		if (gv.reputation > st.emitter.reputation) {
+			st.emitter.ChangeReputation((int) (response * influence));
 		}
 	}
 }
