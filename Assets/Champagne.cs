@@ -8,7 +8,7 @@ public class Champagne : MonoBehaviour
 
   static void ChampagneForEveryone ()
   {
-
+    NotImplementedException ();
   }
 
   #region GUI

@@ -69,7 +69,7 @@ public class InventoryOfStatements : MonoBehaviour
     foreach (Statement item in inventory) {
       if (GUILayout.Button (item.text)) {
         ArtObject talkedAboutArtwork = GetClosestArtwork ();
-        GetComponent<StatementMaker> ().State (item.property, talkedAboutArtwork, 0f);
+        GetComponent<StatementMaker> ().State (item.property, talkedAboutArtwork, item.opinion);
       }
     }
     GUILayout.EndScrollView ();
