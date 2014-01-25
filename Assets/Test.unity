@@ -165,6 +165,8 @@ GameObject:
   - 212: {fileID: 674015824}
   - 114: {fileID: 674015826}
   - 114: {fileID: 674015827}
+  - 114: {fileID: 674015829}
+  - 114: {fileID: 674015828}
   m_Layer: 0
   m_Name: tophat
   m_TagString: Untagged
@@ -217,6 +219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16cc3ac6d41374fc385a2efdcccf42de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  art: {fileID: 0}
   obj: {fileID: 1621895767}
 --- !u!114 &674015827
 MonoBehaviour:
@@ -229,6 +232,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b78c2c6a158d54fd3a74bd0994d5f344, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &674015828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 674015823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e8a995b4a4c348119ac4a111cc3c0b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &674015829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 674015823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56db23299cb5f46ed9dd6e944dce96ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reputation: 100
 --- !u!1 &991765811
 GameObject:
   m_ObjectHideFlags: 0
