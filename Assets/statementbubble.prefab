@@ -42,6 +42,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400004}
   - 114: {fileID: 11400000}
+  - 114: {fileID: 11400002}
   m_Layer: 0
   m_Name: statementbubble
   m_TagString: Untagged
@@ -78,7 +79,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -9.12834263, y: .747792363, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400002}
@@ -138,12 +139,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifespan: 5
+  offset: {x: 0, y: 0, z: 0}
   property: 0
   text: 
   emitter: {fileID: 0}
   topic: {fileID: 0}
   opinion: 0
   hasReacted: []
+  age: 0
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 334b413ab354a48288319451885e72dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listenRadius: 1.89999998
+  offset: {x: -.5, y: .5, z: 0}
+  listeners: []
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

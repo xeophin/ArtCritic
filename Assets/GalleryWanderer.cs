@@ -7,6 +7,8 @@ public class GalleryWanderer : MonoBehaviour {
 	public float moveTime = 3;
 	public float minObserveTime = 4; public float maxObserveTime = 9;
 
+	public GameObject floor;
+
 	public int gridTargetX;
 	public int gridTargetY;
 	public ArtObject observing;
@@ -68,6 +70,7 @@ public class GalleryWanderer : MonoBehaviour {
 	}
 
 	bool IsTileFree(int gx, int gy, OnGrid[] gridObjects, GalleryWanderer[] wanderers) {
+		if (!floor.GetComponent<FloorArea> ().OnFloor(gx, gy, GetComponent<OnGrid> ().gridSize)) { return false; }
 		foreach (OnGrid og in gridObjects) {
 			if (og.gameObject != gameObject && og.At (gx, gy)) {
 				return false;
