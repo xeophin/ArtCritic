@@ -41,10 +41,10 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400004}
+  - 23: {fileID: 2300002}
   - 114: {fileID: 11400000}
-  - 114: {fileID: 11400002}
   m_Layer: 0
-  m_Name: statementbubble
+  m_Name: challengebubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,11 +79,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.4604559, y: -7.05337048, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 400002}
   - {fileID: 400000}
+  - {fileID: 400002}
   m_Father: {fileID: 0}
 --- !u!23 &2300000
 Renderer:
@@ -106,6 +106,27 @@ Renderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_SortingLayerID: 0
+--- !u!23 &2300002
+Renderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100004}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortingLayerID: 0
 --- !u!102 &10200000
 TextMesh:
   serializedVersion: 3
@@ -113,12 +134,12 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_Text: Sublimastic!
+  m_Text: '?'
   m_OffsetZ: -1
-  m_CharacterSize: .25
+  m_CharacterSize: .5
   m_LineSpacing: 1
   m_Anchor: 4
-  m_Alignment: 1
+  m_Alignment: 0
   m_TabSize: 4
   m_FontSize: 0
   m_FontStyle: 0
@@ -135,34 +156,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 100004}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78b332a0b4b6543f7b68474b62a750d2, type: 3}
+  m_Script: {fileID: 11500000, guid: 572ffbf1183474dacb0af109f25a3484, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifespan: 5
-  offset: {x: 0, y: 0, z: 0}
-  property: 0
-  text: 
-  emitter: {fileID: 0}
+  reputationLoss: 10
   topic: {fileID: 0}
-  opinion: 0
-  hasReacted: []
-  age: 0
-  textDisplayed: 0
---- !u!114 &11400002
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100004}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 334b413ab354a48288319451885e72dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  listenRadius: 2.79999995
-  offset: {x: -.5, y: .5, z: 0}
-  listeners: []
-  found: 0
+  victim: {fileID: 0}
+  remainingTime: 5
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

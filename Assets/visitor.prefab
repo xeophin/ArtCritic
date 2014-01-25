@@ -16,6 +16,7 @@ GameObject:
   - 114: {fileID: 11400008}
   - 114: {fileID: 11400006}
   - 114: {fileID: 11400012}
+  - 114: {fileID: 11400014}
   m_Layer: 0
   m_Name: visitor
   m_TagString: Untagged
@@ -47,7 +48,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.23557663, y: -1.99579358, z: 0}
+  m_LocalPosition: {x: -.151702762, y: 3.80384731, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400002}
@@ -200,11 +201,27 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d9e266ff2ef0541eb9c1fe0cf805f088, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11400014
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a10aa06081bfd4b6c803674046f8dc9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxPlayerDist: 2
+  maxArtDist: 3
+  maxMoreReputation: 20
+  challengePrefab: {fileID: 100004, guid: 7f7e7ccd932c44138bc4b57c42ee8c1a, type: 2}
+  askChancePerSecond: .899999976
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
