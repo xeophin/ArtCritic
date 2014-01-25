@@ -4,6 +4,7 @@ using System.Collections;
 public class StatementResponder : MonoBehaviour {
 	public float responseDelay = 1.3f;
 	public float influence = 30;
+	public float repeatMalus = 0.8f;
 
 	// Use this for initialization
 	void Start () {
@@ -30,6 +31,9 @@ public class StatementResponder : MonoBehaviour {
 
 	void Respond(Statement st) {
 		float response = st.opinion * GetComponent<Opinionated> ().opinions [st.property];
+		if (st.repeat) {
+			response -= repeatMalus;
+		}
 		if (response > 0) {
 			GetComponent<Speaker> ().playAgree ();
 			iTween.PunchPosition(this.gameObject, new Vector3(0, -0.15f, 0), 0.5f);

@@ -18,6 +18,7 @@ public class Statement : MonoBehaviour {
 	public List<GalleryVisitor> hasReacted = new List<GalleryVisitor>();
 	public float age;
 	public bool textDisplayed;
+	public bool repeat;
 
 	public void Init (ArtProperties property, GalleryVisitor emitter, ArtObject topic, float opinion) {
 		this.property = property;
@@ -28,6 +29,9 @@ public class Statement : MonoBehaviour {
 		text = "Hmm...";
 		this.gameObject.GetComponentInChildren<TextMesh> ().text = "Hmm...";
 		transform.localScale = new Vector3(0.0f, 0.0f, 1.0f);
+
+		repeat = topic.lastPropertyStated == property;
+		topic.lastPropertyStated = property;
 
 		foreach (Challenge ch in FindObjectsOfType<Challenge> ()) {
 			if (ch.victim == emitter && ch.topic == topic) {

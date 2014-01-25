@@ -6,6 +6,7 @@ using AssemblyCSharp;
 public class ArtObject : MonoBehaviour {
 	public int numProperties = 3;
 	public List<ArtProperties> properties = new List<ArtProperties>();
+	public ArtProperties lastPropertyStated;
 
 	public void RandomizeProperties() {
 		System.Array aps = System.Enum.GetValues ((typeof(ArtProperties)));
