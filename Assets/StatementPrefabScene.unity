@@ -231,7 +231,7 @@ AudioSource:
   Mute: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 10
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -2128,6 +2128,22 @@ Prefab:
       propertyPath: floor
       value: 
       objectReference: {fileID: 720447470}
+    - target: {fileID: 8200000, guid: a0b715064339c467aa6923166402621a, type: 2}
+      propertyPath: MinDistance
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 21200000, guid: a0b715064339c467aa6923166402621a, type: 2}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 21200000, guid: a0b715064339c467aa6923166402621a, type: 2}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 21200000, guid: a0b715064339c467aa6923166402621a, type: 2}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a0b715064339c467aa6923166402621a, type: 2}
   m_RootGameObject: {fileID: 31810305}
