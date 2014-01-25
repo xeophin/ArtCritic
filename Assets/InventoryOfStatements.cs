@@ -4,36 +4,22 @@ using System.Collections.Generic;
 
 public class InventoryOfStatements : MonoBehaviour
 {
-  List<Statement> inventory;
+	List<Statement> inventory = new List<Statement>();
 
-  void OnTriggerEnter2D (Collider2D other)
-  {
+	public void HandleStatementMade(Statement st) {
+		inventory.Add (st);
+	}
 
-    Debug.Log ("Collisionenter");
-    if (other.gameObject.tag == "Enemy") {
-      Debug.Log ("Seeing an Enemy!");
-      other.gameObject.GetComponent<StatementMaker> ().StatementMade += HandleStatementMade;
-    }
-  }
-
-  void HandleStatementMade (object sender, StatementEventArgs e)
-  {
-    inventory.Add (e.Statement);
-  }
-
-  void OnTriggerExit2D (Collider2D other)
-  {
-    if (other.gameObject.tag == "Enemy") {
-      Debug.Log ("Goodbye, enemy");
-      other.gameObject.GetComponent<StatementMaker> ().StatementMade -= HandleStatementMade;
-    }
-    // When the other visitor exits listening range, remove emit event
-  }
-
-  void Awake ()
-  {
-    inventory = new List<Statement> ();
-  }
+	void Update() {
+		GalleryVisitor gv = GetComponent<GalleryVisitor> ();
+		foreach (Statement st in FindObjectsOfType<Statement>()) {
+			Listeners ls = st.GetComponent<Listeners> ();
+			if (ls.found && ls.listeners.Contains(gv) && !st.hasReacted.Contains(gv)) {
+				HandleStatementMade(st);
+				st.hasReacted.Add(gv);
+			}
+		}
+	}
 
   #region List Management
 
@@ -67,6 +53,5 @@ public class InventoryOfStatements : MonoBehaviour
   }
 
   #endregion
-
 }
 
