@@ -11,16 +11,22 @@ public class GalleryWanderer : MonoBehaviour {
 	public int gridTargetY;
 	public ArtObject observing;
 	public float timeUntilMove;
+	public float timeUntilNotMoving;
 	public List<ArtObject> visited = new List<ArtObject>();
 
 	// Use this for initialization
 	void Start () {
 		WaitUntilMove (Random.Range (0, maxInitialWait));
 	}
-	
+
+	public bool IsMoving() {
+		return timeUntilNotMoving > 0;
+	}
+
 	// Update is called once per frame
 	void Update () {
 		timeUntilMove -= Time.deltaTime;
+		timeUntilNotMoving -= Time.deltaTime;
 		if (CanMove ()) {
 			ArtObject target = FindNextTarget();
 			if (target != null) {
@@ -34,6 +40,7 @@ public class GalleryWanderer : MonoBehaviour {
 						visited.Add (target);
 					}
 					iTween.MoveTo(this.gameObject, GetComponent<OnGrid>().V3Position(gridTargetX, gridTargetY), moveTime);
+					timeUntilNotMoving = moveTime;
 					WaitUntilMove(moveTime + Random.Range(minObserveTime, maxObserveTime));
 				}
 			}
@@ -94,7 +101,7 @@ public class GalleryWanderer : MonoBehaviour {
 		return timeUntilMove <= 0;
 	}
 
-	void WaitUntilMove(float time) {
+	public void WaitUntilMove(float time) {
 		if (time > timeUntilMove) { timeUntilMove = time; }
 	}
 }
