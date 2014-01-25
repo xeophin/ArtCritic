@@ -118,6 +118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reputation: 100
+  randomizeRep: 1
   minRep: 20
   maxRep: 100
 --- !u!114 &11400002
@@ -133,8 +134,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxInitialWait: 5
   moveTime: 3
-  minObserveTime: 4
-  maxObserveTime: 9
+  minObserveTime: 7
+  maxObserveTime: 12
   floor: {fileID: 0}
   gridTargetX: 0
   gridTargetY: 0
@@ -195,6 +196,7 @@ MonoBehaviour:
   observationTime: 0
   minObservationTime: 2
   maxObservationTime: 5
+  postObservationWait: 2
 --- !u!114 &11400012
 MonoBehaviour:
   m_ObjectHideFlags: 1
