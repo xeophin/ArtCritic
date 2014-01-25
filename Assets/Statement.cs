@@ -25,9 +25,15 @@ public class Statement : MonoBehaviour {
 		this.topic = topic;
 		this.opinion = opinion;
 		transform.position = emitter.transform.position + offset;
-		text = "...";
-		this.gameObject.GetComponentInChildren<TextMesh> ().text = "...";
+		text = "Hmm...";
+		this.gameObject.GetComponentInChildren<TextMesh> ().text = "Hmm...";
 		transform.localScale = new Vector3(0.0f, 0.0f, 1.0f);
+
+		foreach (Challenge ch in FindObjectsOfType<Challenge> ()) {
+			if (ch.victim == emitter && ch.topic == topic) {
+				Destroy(ch.gameObject);
+			}
+		}
 	}
 
 	void Start () {
@@ -48,6 +54,7 @@ public class Statement : MonoBehaviour {
 					iTween.PunchScale (this.gameObject, new Vector3 (1.1f, 1.1f, 1.0f), 0.5f);
 				} else {
 					text = "...";
+					this.gameObject.GetComponentInChildren<TextMesh> ().text = "...";
 					transform.localScale = new Vector3(0.67f, 0.67f, 1.0f);
 				}
 				textDisplayed = true;

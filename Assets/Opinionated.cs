@@ -31,7 +31,7 @@ public class Opinionated : MonoBehaviour {
 			observationTime = Random.Range(minObservationTime, maxObservationTime);
 		}
 
-		if (FindObjectOfType<Statement> () == null) {
+		if (FindObjectOfType<Statement> () == null && FindObjectOfType<Challenge> () == null) {
 			observationTime -= Time.deltaTime;
 
 			if (observationTime <= 0) {
