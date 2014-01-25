@@ -4,6 +4,7 @@ using System.Collections.Generic;
 public class InventoryOfStatements : MonoBehaviour
 {
   List<Statement> inventory = new List<Statement> ();
+  GalleryVisitor gv;
 
   public void HandleStatementMade (Statement st)
   {
@@ -12,32 +13,14 @@ public class InventoryOfStatements : MonoBehaviour
     }
   }
 
-  ArtObject[] artworks;
-
   void Start ()
   {
-    artworks = Object.FindObjectsOfType<ArtObject> ();
-
-  }
-
-  ArtObject GetClosestArtwork ()
-  {
-    ArtObject result = artworks [0];
-    float smallestDistance = float.PositiveInfinity;
-    foreach (var item in artworks) {
-      float tempDistance = Vector3.Distance (this.transform.position, item.transform.position);
-      if (tempDistance <= smallestDistance) {
-        smallestDistance = tempDistance;
-        result = item;
-      }
-    }
-
-    return result;
+    gv = GetComponent<GalleryVisitor> ();
   }
 
   void Update ()
   {
-    GalleryVisitor gv = GetComponent<GalleryVisitor> ();
+
     foreach (Statement st in FindObjectsOfType<Statement>()) {
       Listeners ls = st.GetComponent<Listeners> ();
       if (ls.found && ls.listeners.Contains (gv) && !st.hasReacted.Contains (gv)) {
@@ -71,7 +54,7 @@ public class InventoryOfStatements : MonoBehaviour
     GUILayout.BeginScrollView (scrollViewPosition);
     foreach (Statement item in inventory) {
       if (GUILayout.Button (item.text)) {
-        ArtObject talkedAboutArtwork = GetClosestArtwork ();
+        ArtObject talkedAboutArtwork = gv.GetClosestArtwork ();
         GetComponent<StatementMaker> ().State (item.property, talkedAboutArtwork, item.opinion);
       }
     }

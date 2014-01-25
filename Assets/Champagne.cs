@@ -21,8 +21,16 @@ public class Champagne : MonoBehaviour
     oldMatrix = GUI.matrix;
     GUI.matrix = Matrix4x4.TRS (Vector3.zero, Quaternion.identity, GeneralRessources.Scale);
 
-    if (GUI.Button (buttonPosition, "Drink up")) {
+    if (GUI.Button (buttonPosition, "Drink up!")) {
       drunkenness += 0.1f;
+
+      // Kill all challenges
+      foreach (Challenge ch in FindObjectsOfType<Challenge> ()) {
+        ArtObject ao = GalleryVisitor.GetClosestArtwork (transform.position);
+        if (ch.victim == gameObject.GetComponent<GalleryVisitor> () && ch.topic == ao) {
+          Destroy (ch.gameObject);
+        }
+      }
 
       // Go to another place
       Vector3 goTo = floor.GetRandomPositionOnFloor ();
