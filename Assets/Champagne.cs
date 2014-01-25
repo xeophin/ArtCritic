@@ -4,6 +4,7 @@ using UnityEngine;
 public class Champagne : MonoBehaviour
 {
   public float drunkenness = 0;
+  public FloorArea floor;
 
   static void ChampagneForEveryone ()
   {
@@ -24,6 +25,9 @@ public class Champagne : MonoBehaviour
       drunkenness += 0.1f;
 
       // Go to another place
+      Vector3 goTo = floor.GetRandomPositionOnFloor ();
+      iTween.MoveTo (this.gameObject, goTo, 2f);
+
     }
 
     GUI.matrix = oldMatrix;

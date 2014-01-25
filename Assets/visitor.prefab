@@ -221,7 +221,7 @@ MonoBehaviour:
   maxArtDist: 3
   maxMoreReputation: 20
   challengePrefab: {fileID: 100004, guid: 7f7e7ccd932c44138bc4b57c42ee8c1a, type: 2}
-  askChancePerSecond: .200000003
+  askChancePerSecond: .899999976
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
