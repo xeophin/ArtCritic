@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using AssemblyCSharp;
 
+/// <summary>
+///  A statement about an art object.
+/// </summary>
 public class Statement : MonoBehaviour {
 	public float lifespan = 5;
 

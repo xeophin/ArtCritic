@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-/** Common properties of both the player avatar and the NPCs. */
+/// <summary>
+///  Common properties of both the player avatar and the NPCs.
+/// </summary>
 public class GalleryVisitor : MonoBehaviour {
 	public int reputation = 100;
 
