@@ -4,6 +4,8 @@ using System.Collections;
 
 public class Champagne : MonoBehaviour
 {
+	public AudioClip drink;
+
   public float drunkenness = 0;
   public FloorArea floor;
 
@@ -47,7 +49,7 @@ public class Champagne : MonoBehaviour
       // Go to another place
       Vector3 goTo = floor.GetRandomPositionOnFloor ();
       iTween.MoveTo (this.gameObject, goTo, 2f);
-
+		if (drink != null) { GetComponent<AudioSource> ().PlayOneShot (drink); }
     }
 
     GUI.matrix = oldMatrix;
