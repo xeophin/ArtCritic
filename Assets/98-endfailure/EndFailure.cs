@@ -35,6 +35,7 @@ public class EndFailure : MonoBehaviour
 
   IEnumerator RestartGame ()
   {
+    iTween.CameraFadeAdd ();
     iTween.CameraFadeTo (1f, 3f);
     yield return new WaitForSeconds (3f);
     Application.LoadLevel (1);
