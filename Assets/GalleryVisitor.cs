@@ -55,6 +55,12 @@ public class GalleryVisitor : MonoBehaviour
 		transform.FindChild ("rep_fg").renderer.material.color = RepColor ();
 		//iTween.ScaleTo (transform.FindChild ("rep_fg").gameObject, new Vector3 (0.009f * reputation, 0.1f, 1.0f), 0.3f);
 		//iTween.MoveTo (transform.FindChild ("rep_fg").gameObject, transform.position + new Vector3 (-0.45f + 0.009f * reputation / 2, -0.55f, -3f), 0.3f);
+		if (delta < 0) {
+			iTween.PunchScale (gameObject, new Vector3 (1.0f, 0.9f, 1.0f), 0.5f);
+		}
+		if (delta > 0) {
+			iTween.PunchScale (gameObject, new Vector3 (1.0f, 1.1f, 1.0f), 0.5f);
+		}
 	}
 
 	float Box(float v) {

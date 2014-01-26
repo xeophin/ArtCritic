@@ -9,6 +9,10 @@ public class Champagne : MonoBehaviour
   public float drunkenness = 0;
   public FloorArea floor;
 
+	public bool doNonsense() {
+		return UnityEngine.Random.Range (0.0f, 1.0f) < drunkenness;
+	}
+
   static void ChampagneForEveryone ()
   {
     
