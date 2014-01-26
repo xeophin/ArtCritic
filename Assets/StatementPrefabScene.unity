@@ -122,8 +122,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b27c96c8d2c904b64986e23762891306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  drink: {fileID: 8300000, guid: 4bf2c70d9ddc0432a8752c2d5af85712, type: 3}
   drunkenness: 0
-  floor: {fileID: 0}
+  floor: {fileID: 720447471}
 --- !u!114 &31810308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3460,6 +3461,14 @@ Prefab:
       propertyPath: floor
       value: 
       objectReference: {fileID: 720447470}
+    - target: {fileID: 11400012, guid: a0b715064339c467aa6923166402621a, type: 2}
+      propertyPath: floor
+      value: 
+      objectReference: {fileID: 720447471}
+    - target: {fileID: 11400012, guid: a0b715064339c467aa6923166402621a, type: 2}
+      propertyPath: drink
+      value: 
+      objectReference: {fileID: 8300000, guid: 4bf2c70d9ddc0432a8752c2d5af85712, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a0b715064339c467aa6923166402621a, type: 2}
   m_RootGameObject: {fileID: 31810305}
