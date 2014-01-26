@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class InventoryOfStatements : MonoBehaviour
 {
-  List<Statement> inventory = new List<Statement> ();
+  public List<Statement> inventory = new List<Statement> ();
   GalleryVisitor gv;
 
   public void HandleStatementMade (Statement st)
