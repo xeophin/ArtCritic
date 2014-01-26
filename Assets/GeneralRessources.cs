@@ -3,6 +3,7 @@ using System.Collections;
 
 public class GeneralRessources : MonoBehaviour
 {
+  public GUISkin Style;
   public const float BaseScreenWidth = 1280f;
   public const float BaseScreenHeight = 720f;
 

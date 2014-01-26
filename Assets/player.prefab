@@ -101,7 +101,7 @@ AudioSource:
   Mute: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 10
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -236,11 +236,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d163a727ac07d4330ab3e9176fb7dcad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  good: {fileID: 0}
-  bad: {fileID: 0}
-  agree: {fileID: 0}
-  disagree: {fileID: 0}
-  ask: {fileID: 0}
+  good: {fileID: 8300000, guid: 74e43761744cb404eaf39197b92fce18, type: 3}
+  bad: {fileID: 8300000, guid: 5cf6f5d39039b434fa32d397f7fb4806, type: 3}
+  agree: {fileID: 8300000, guid: 3340bddb230044c9ba5c78cd5dbd9063, type: 3}
+  disagree: {fileID: 8300000, guid: ae70d53e2dfb943e587312b3ac1c897f, type: 3}
+  ask: {fileID: 8300000, guid: 5eb91ee3586cb47b78dd88b82599b999, type: 3}
 --- !u!114 &11400012
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -254,6 +254,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drunkenness: 0
   floor: {fileID: 0}
+  GlassFull: {fileID: 2800000, guid: e3261d1980e314348a650e635f55b64d, type: 3}
+  GlassEmpty: {fileID: 2800000, guid: f10d1c1f92a7a4f4ea4d038c51575333, type: 3}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

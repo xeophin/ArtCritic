@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using System.Collections;
 
 public class Champagne : MonoBehaviour
 {
@@ -11,17 +12,28 @@ public class Champagne : MonoBehaviour
     
   }
 
+  void Start ()
+  {
+    style = Camera.main.GetComponent<GeneralRessources> ().Style;
+    content = new GUIContent ("Drink up!", GlassFull, "Empty your glass to evade any questions.");
+  }
+
   #region GUI
 
   Matrix4x4 oldMatrix;
-  Rect buttonPosition = new Rect (20f, 680f, 20f, 20f);
+  Rect buttonPosition = new Rect (1110f, 550f, 150f, 150f);
+  GUISkin style;
+  public Texture2D GlassFull;
+  public Texture2D GlassEmpty;
+  GUIContent content;
 
   void OnGUI ()
   {
+    GUI.skin = style;
     oldMatrix = GUI.matrix;
     GUI.matrix = Matrix4x4.TRS (Vector3.zero, Quaternion.identity, GeneralRessources.Scale);
 
-    if (GUI.Button (buttonPosition, "Drink up!")) {
+    if (GUI.Button (buttonPosition, content, style.customStyles [0])) {
       drunkenness += 0.1f;
 
       // Kill all challenges
