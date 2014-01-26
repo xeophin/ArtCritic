@@ -9,6 +9,10 @@ public class Champagne : MonoBehaviour
   public float drunkenness = 0;
   public FloorArea floor;
 
+	public bool doNonsense() {
+		return UnityEngine.Random.Range (0.0f, 1.0f) < drunkenness;
+	}
+
   static void ChampagneForEveryone ()
   {
     
@@ -47,13 +51,20 @@ public class Champagne : MonoBehaviour
       }
 
       // Go to another place
-      Vector3 goTo = floor.GetRandomPositionOnFloor ();
-      iTween.MoveTo (this.gameObject, goTo, 2f);
+      
 		if (drink != null) { GetComponent<AudioSource> ().PlayOneShot (drink); }
+		GetComponentInChildren<Animator> ().SetTrigger ("pDrink");
+		StartCoroutine (Teleport ());
     }
 
     GUI.matrix = oldMatrix;
   }
+
+	IEnumerator Teleport() {
+		yield return new WaitForSeconds(1.3f);
+		Vector3 goTo = floor.GetRandomPositionOnFloor ();
+		iTween.MoveTo (this.gameObject, goTo, 2f);
+	}
 
   #endregion
 
