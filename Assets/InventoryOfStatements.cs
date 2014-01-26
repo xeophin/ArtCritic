@@ -16,6 +16,9 @@ public class InventoryOfStatements : MonoBehaviour
   void Start ()
   {
     gv = GetComponent<GalleryVisitor> ();
+
+    // Get GUIskin
+    skin = Camera.main.GetComponent<GeneralRessources> ().Style;
   }
 
   void Update ()
@@ -36,15 +39,19 @@ public class InventoryOfStatements : MonoBehaviour
 
   #region GUI
 
-  Rect positionOfList = new Rect (1000f, 10f, 260f, 700f);
+  GUISkin skin;
+  Rect positionOfList = new Rect (1000f, 20f, 260f, 500f);
   Matrix4x4 oldMatrix;
   Vector2 scrollViewPosition = new Vector2 ();
 
   void OnGUI ()
   {
-	if (!GetComponent<GalleryVisitor> ().CanTalk ()) {
-		return;
-	}
+    if (!GetComponent<GalleryVisitor> ().CanTalk ()) {
+      return;
+    }
+
+    GUI.skin = skin;
+
     // Setup GUI scaling
     oldMatrix = GUI.matrix;
     GUI.matrix = Matrix4x4.TRS (Vector3.zero, Quaternion.identity, GeneralRessources.Scale);
@@ -55,7 +62,11 @@ public class InventoryOfStatements : MonoBehaviour
     foreach (Statement item in inventory) {
       if (GUILayout.Button (item.text)) {
         ArtObject talkedAboutArtwork = gv.GetClosestArtwork ();
-        GetComponent<StatementMaker> ().State (item.property, talkedAboutArtwork, item.opinion);
+		Statement st = item;
+		if (GetComponent<Champagne> ().doNonsense ()) {
+			st = inventory[Random.Range(0, inventory.Count)];
+		}
+        GetComponent<StatementMaker> ().State (st.property, talkedAboutArtwork, st.opinion);
       }
     }
     GUILayout.EndScrollView ();

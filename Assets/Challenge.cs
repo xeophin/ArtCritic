@@ -19,6 +19,7 @@ public class Challenge : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		iTween.PunchScale (this.gameObject, new Vector3 (1.1f, 1.1f, 1.0f), 0.5f);
+		transform.FindChild ("text").renderer.sortingLayerID = 3;
 	}
 
 	// Update is called once per frame

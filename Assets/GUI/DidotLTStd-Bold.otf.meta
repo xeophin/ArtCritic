@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 2b7e44141a0174749b2fdb6d41d4e076
+TrueTypeFontImporter:
+  serializedVersion: 2
+  fontSize: 48
+  forceTextureCase: -2
+  characterSpacing: 1
+  characterPadding: 0
+  includeFontData: 1
+  use2xBehaviour: 0
+  fontNames:
+  - Didot
+  customCharacters: 
+  fontRenderingMode: 1
+  userData: 

@@ -1,27 +1,45 @@
 using System;
 using UnityEngine;
+using System.Collections;
 
 public class Champagne : MonoBehaviour
 {
+	public AudioClip drink;
+
   public float drunkenness = 0;
   public FloorArea floor;
+
+	public bool doNonsense() {
+		return UnityEngine.Random.Range (0.0f, 1.0f) < drunkenness;
+	}
 
   static void ChampagneForEveryone ()
   {
     
   }
 
+  void Start ()
+  {
+    style = Camera.main.GetComponent<GeneralRessources> ().Style;
+    content = new GUIContent ("Drink up!", GlassFull, "Empty your glass to evade any questions.");
+  }
+
   #region GUI
 
   Matrix4x4 oldMatrix;
-  Rect buttonPosition = new Rect (20f, 680f, 20f, 20f);
+  Rect buttonPosition = new Rect (1110f, 550f, 150f, 150f);
+  GUISkin style;
+  public Texture2D GlassFull;
+  public Texture2D GlassEmpty;
+  GUIContent content;
 
   void OnGUI ()
   {
+    GUI.skin = style;
     oldMatrix = GUI.matrix;
     GUI.matrix = Matrix4x4.TRS (Vector3.zero, Quaternion.identity, GeneralRessources.Scale);
 
-    if (GUI.Button (buttonPosition, "Drink up!")) {
+    if (GUI.Button (buttonPosition, content, style.customStyles [0])) {
       drunkenness += 0.1f;
 
       // Kill all challenges
@@ -33,13 +51,20 @@ public class Champagne : MonoBehaviour
       }
 
       // Go to another place
-      Vector3 goTo = floor.GetRandomPositionOnFloor ();
-      iTween.MoveTo (this.gameObject, goTo, 2f);
-
+      
+		if (drink != null) { GetComponent<AudioSource> ().PlayOneShot (drink); }
+		GetComponentInChildren<Animator> ().SetTrigger ("pDrink");
+		StartCoroutine (Teleport ());
     }
 
     GUI.matrix = oldMatrix;
   }
+
+	IEnumerator Teleport() {
+		yield return new WaitForSeconds(1.3f);
+		Vector3 goTo = floor.GetRandomPositionOnFloor ();
+		iTween.MoveTo (this.gameObject, goTo, 2f);
+	}
 
   #endregion
 
