@@ -4,4 +4,18 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/00-splashscreen/splashscreen.unity
+  - enabled: 1
+    path: Assets/10-tutorial/tutorial.unity
+  - enabled: 1
+    path: Assets/StatementPrefabScene.unity
+  - enabled: 1
+    path: Assets/Level2.unity
+  - enabled: 1
+    path: Assets/Level3.unity
+  - enabled: 1
+    path: Assets/98-endfailure/EndFailure.unity
+  - enabled: 1
+    path: Assets/99-endsuccess/EndSuccess.unity
