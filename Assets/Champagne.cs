@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using System.Collections;
 
 public class Champagne : MonoBehaviour
 {
@@ -35,13 +36,20 @@ public class Champagne : MonoBehaviour
       }
 
       // Go to another place
-      Vector3 goTo = floor.GetRandomPositionOnFloor ();
-      iTween.MoveTo (this.gameObject, goTo, 2f);
+      
 		if (drink != null) { GetComponent<AudioSource> ().PlayOneShot (drink); }
+		GetComponentInChildren<Animator> ().SetTrigger ("pDrink");
+		StartCoroutine (Teleport ());
     }
 
     GUI.matrix = oldMatrix;
   }
+
+	IEnumerator Teleport() {
+		yield return new WaitForSeconds(1.3f);
+		Vector3 goTo = floor.GetRandomPositionOnFloor ();
+		iTween.MoveTo (this.gameObject, goTo, 2f);
+	}
 
   #endregion
 

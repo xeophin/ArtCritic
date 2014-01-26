@@ -21,7 +21,7 @@ public class MoveToPositionOnClick : MonoBehaviour
       if (floor != null && floor.GetComponent<FloorArea> ().OnFloor (target.x, target.y)) {
         iTween.MoveTo (this.gameObject, target, 1f);
       } else {
-        iTween.ShakePosition (this.gameObject, new Vector3 (0.2f, 0, 0), 0.5f);
+        //iTween.ShakePosition (this.gameObject, new Vector3 (0.2f, 0, 0), 0.5f);
       }
     }
   }
