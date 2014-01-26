@@ -537,6 +537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1969a20ccce28490690d18ebf0794a9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventory: []
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -606,7 +607,7 @@ MonoBehaviour:
   drink: {fileID: 8300000, guid: 4bf2c70d9ddc0432a8752c2d5af85712, type: 3}
   drunkenness: 0
   floor: {fileID: 0}
-  GlassFull: {fileID: 2800000, guid: ed04c3f4eb0874fe7802eb3866c44cbc, type: 3}
+  GlassFull: {fileID: 2800000, guid: e3261d1980e314348a650e635f55b64d, type: 3}
   GlassEmpty: {fileID: 2800000, guid: f10d1c1f92a7a4f4ea4d038c51575333, type: 3}
 --- !u!212 &21200000
 SpriteRenderer:
@@ -630,7 +631,7 @@ SpriteRenderer:
   m_SortingOrder: 4
   m_SortingLayerID: 573065245
   m_Sprite: {fileID: 21300000, guid: 84e1476e51f2f466da31626fee7e9e71, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: .0859533325, g: .0845588222, b: .125, a: 1}
 --- !u!212 &21200002
 SpriteRenderer:
   m_ObjectHideFlags: 1
