@@ -23,7 +23,9 @@ public class Tutorial : MonoBehaviour
   {
     GUI.matrix = Matrix4x4.TRS (Vector3.zero, Quaternion.identity, GeneralRessources.Scale);
     GUI.skin = style;
-    GUI.Label (pos, "This gentleman seems knowledgable. Get close to him by clicking beside the artwork and observe to learn.");
+    GUI.Label (pos, "This gentleman seems knowledgable. " +
+    "Get close to him by clicking beside the artwork and observe to learn.\n" +
+    "Use the things you learned to impress other guests and rank up in reputation.");
   }
 
   IEnumerator WatchForElementsInStatements ()

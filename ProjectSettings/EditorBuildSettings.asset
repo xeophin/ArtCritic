@@ -12,6 +12,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/StatementPrefabScene.unity
   - enabled: 1
+    path: Assets/Level2.unity
+  - enabled: 1
     path: Assets/98-endfailure/EndFailure.unity
   - enabled: 1
     path: Assets/99-endsuccess/EndSuccess.unity
