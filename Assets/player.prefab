@@ -32,7 +32,6 @@ GameObject:
   - 114: {fileID: 11400000}
   - 114: {fileID: 11400012}
   - 82: {fileID: 8200000}
-  - 111: {fileID: 11100000}
   - 114: {fileID: 11400010}
   m_Layer: 0
   m_Name: player
@@ -129,6 +128,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400014}
+  - 95: {fileID: 9500000}
   m_Layer: 0
   m_Name: visitorSprite
   m_TagString: Untagged
@@ -310,6 +310,20 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!95 &9500000
+Animator:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100014}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 47293a0298fb04b06827d87437a6996d, type: 2}
+  m_CullingMode: 0
+  m_ApplyRootMotion: 1
+  m_AnimatePhysics: 0
+  m_HasTransformHierarchy: 1
 --- !u!102 &10200000
 TextMesh:
   serializedVersion: 3
@@ -331,20 +345,6 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4280194589
---- !u!111 &11100000
-Animation:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100002}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 0}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 0
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -422,12 +422,6 @@ MonoBehaviour:
   agree: {fileID: 0}
   disagree: {fileID: 0}
   ask: {fileID: 0}
-  idleA: {fileID: 7400000, guid: be9137441fc6241389f36264380ca340, type: 2}
-  goodA: {fileID: 7400000, guid: ebc9b42bdfca74aad8f7bbe50d9c8b9d, type: 2}
-  badA: {fileID: 7400000, guid: 3cbdf2f08da7f4110be5a14576de7683, type: 2}
-  agreeA: {fileID: 7400000, guid: 2ae86ba63c2a24f6995cee292c16a84a, type: 2}
-  disagreeA: {fileID: 7400000, guid: e346f286c2efe4be3b1e206925e61613, type: 2}
-  askA: {fileID: 7400000, guid: 94bbf76a1b56b4616a7c132920dc9faa, type: 2}
 --- !u!114 &11400012
 MonoBehaviour:
   m_ObjectHideFlags: 1

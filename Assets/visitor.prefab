@@ -18,7 +18,6 @@ GameObject:
   - 114: {fileID: 11400014}
   - 114: {fileID: 11400016}
   - 82: {fileID: 8200000}
-  - 111: {fileID: 11100000}
   m_Layer: 0
   m_Name: visitor
   m_TagString: Untagged
@@ -348,20 +347,6 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4286414298
---- !u!111 &11100000
-Animation:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 0}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 0
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -492,17 +477,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d163a727ac07d4330ab3e9176fb7dcad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  good: {fileID: 8300000, guid: 526610a7363b940a1b07655fbd91e992, type: 3}
-  bad: {fileID: 8300000, guid: 42d03bf2b6c2545c3942a2b8895a5724, type: 3}
-  agree: {fileID: 8300000, guid: d1b08eabbf211429c82bd0f6128a8477, type: 3}
-  disagree: {fileID: 8300000, guid: 0a17c0d0c6ef2463a86e78930eeec0cc, type: 3}
-  ask: {fileID: 8300000, guid: d0924622158a54501b46308440899ca5, type: 3}
-  idleA: {fileID: 7400000, guid: be9137441fc6241389f36264380ca340, type: 2}
-  goodA: {fileID: 7400000, guid: ebc9b42bdfca74aad8f7bbe50d9c8b9d, type: 2}
-  badA: {fileID: 7400000, guid: 3cbdf2f08da7f4110be5a14576de7683, type: 2}
-  agreeA: {fileID: 7400000, guid: 2ae86ba63c2a24f6995cee292c16a84a, type: 2}
-  disagreeA: {fileID: 7400000, guid: e346f286c2efe4be3b1e206925e61613, type: 2}
-  askA: {fileID: 7400000, guid: 94bbf76a1b56b4616a7c132920dc9faa, type: 2}
+  good: {fileID: 8300000, guid: ef1f4cf4ee7604a0fbaaa4a0636b0466, type: 3}
+  bad: {fileID: 8300000, guid: b4b958490a8ca4740a363b2caa90bbdb, type: 3}
+  agree: {fileID: 8300000, guid: 7b49d09eef24043cba4b3ebcaf18b55f, type: 3}
+  disagree: {fileID: 8300000, guid: ff7261dc4bfff41e59e895ee8ac0e994, type: 3}
+  ask: {fileID: 8300000, guid: 4a18e78762d9847baabcadd0b67be7d3, type: 3}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
