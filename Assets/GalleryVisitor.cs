@@ -49,7 +49,7 @@ public class GalleryVisitor : MonoBehaviour
  	public void ChangeReputation (int delta) {
 		reputation += delta;
 		//iTween.ScaleTo (transform.FindChild ("visitorSprite").FindChild ("head").gameObject, new Vector3 (reputation / 100f, reputation / 100f, 1.0f), 0.1f);
-		//transform.FindChild ("head").transform.localScale = new Vector3 (reputation / 100f, reputation / 100f, 1.0f);
+		transform.localScale = new Vector3 (0.8f + reputation / 500f, 0.8f + reputation / 500f, 1.0f);
 	}
 
   #region Artwork List
