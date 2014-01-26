@@ -41,11 +41,11 @@ public class Opinionated : MonoBehaviour {
 				ArtProperties commentProperty = observed.properties[Random.Range(0, observed.properties.Count)];
 				Statement st = GetComponent<StatementMaker>().State(commentProperty, observed, opinions[commentProperty]);
 				gw.WaitUntilMove(st.lifespan);
-				if (opinions[commentProperty] > 0) {
+				/*if (opinions[commentProperty] > 0) {
 					iTween.PunchPosition(this.gameObject, new Vector3(0, -0.2f, 0), 0.5f);
 				} else {
 					iTween.ShakePosition(this.gameObject, new Vector3(0.05f, 0, 0), 0.5f);
-				}
+				}*/
 			}
 		}
 	}

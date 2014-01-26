@@ -36,10 +36,10 @@ public class StatementResponder : MonoBehaviour {
 		}
 		if (response > 0) {
 			GetComponent<Speaker> ().playAgree ();
-			iTween.PunchPosition(this.gameObject, new Vector3(0, -0.15f, 0), 0.5f);
+			//iTween.PunchPosition(this.gameObject, new Vector3(0, -0.15f, 0), 0.5f);
 		} else {
 			GetComponent<Speaker> ().playDisagree ();
-			iTween.ShakePosition(this.gameObject, new Vector3(0.08f, 0, 0), 0.5f);
+			//iTween.ShakePosition(this.gameObject, new Vector3(0.08f, 0, 0), 0.5f);
 		}
 
 		GalleryVisitor gv = GetComponent<GalleryVisitor> ();
