@@ -54,6 +54,7 @@ public class Champagne : MonoBehaviour
       
 		if (drink != null) { GetComponent<AudioSource> ().PlayOneShot (drink); }
 		GetComponentInChildren<Animator> ().SetTrigger ("pDrink");
+			GetComponent<ParticleSystem> ().Play ();
 		StartCoroutine (Teleport ());
     }
 

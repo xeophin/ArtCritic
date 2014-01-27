@@ -16,7 +16,7 @@ public class StatementMaker : MonoBehaviour
       handler (this, e);
   }
 
-  public Statement State (ArtProperties property, ArtObject topic, float opinion)
+  public Statement State (ArtProperties property, ArtObject topic, bool opinion)
   {
     GameObject bubble = (GameObject)Instantiate (statementPrefab);
     bubble.GetComponent<Statement> ().Init (property, GetComponent<GalleryVisitor> (), topic, opinion);
