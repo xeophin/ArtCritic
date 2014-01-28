@@ -65,6 +65,7 @@ public class InventoryOfStatements : MonoBehaviour
 		Statement st = item;
 		if (GetComponent<Champagne> ().doNonsense ()) {
 			st = inventory[Random.Range(0, inventory.Count)];
+			GetComponent<ParticleSystem> ().Play ();
 		}
         GetComponent<StatementMaker> ().State (st.property, talkedAboutArtwork, st.opinion);
       }

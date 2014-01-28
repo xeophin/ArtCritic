@@ -20,6 +20,10 @@ public class Challenger : MonoBehaviour {
 		GalleryWanderer gw = GetComponent<GalleryWanderer> ();
 		GalleryVisitor gv = GetComponent<GalleryVisitor> ();
 
+		if (gw.IsMoving ()) {
+			return;
+		}
+
 		GalleryVisitor pgv = GameObject.FindWithTag ("Player").GetComponent<GalleryVisitor> ();
 
 		if (gv.reputation > pgv.reputation + maxMoreReputation) { return; }

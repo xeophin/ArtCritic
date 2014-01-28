@@ -19,6 +19,7 @@ public class MoveToPositionOnClick : MonoBehaviour
       target = Camera.main.ScreenToWorldPoint (Input.mousePosition);
       target = new Vector3 (target.x, target.y, 0);
 		if (GetComponent<Champagne> ().doNonsense()) {
+			GetComponent<ParticleSystem> ().Play ();
 			iTween.MoveTo (this.gameObject, floor.GetComponent<FloorArea> ().GetRandomPositionOnFloor (), 1f);
 		} else { 
 	      if (floor != null && floor.GetComponent<FloorArea> ().OnFloor (target.x, target.y)) {

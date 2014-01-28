@@ -14,7 +14,7 @@ public class Statement : MonoBehaviour
   public string text;
   public GalleryVisitor emitter;
   public ArtObject topic;
-  public float opinion;
+  public bool opinion;
   // -1 to +1
   public List<GalleryVisitor> hasReacted = new List<GalleryVisitor> ();
   public float age;
@@ -23,7 +23,7 @@ public class Statement : MonoBehaviour
   public Font font;
   TextMesh textmesh;
 
-  public void Init (ArtProperties property, GalleryVisitor emitter, ArtObject topic, float opinion)
+  public void Init (ArtProperties property, GalleryVisitor emitter, ArtObject topic, bool opinion)
   {
     this.property = property;
     this.emitter = emitter;
@@ -44,7 +44,7 @@ public class Statement : MonoBehaviour
       }
     }
 
-    if (opinion > 0) {
+    if (opinion) {
       emitter.GetComponent<Speaker> ().playGood ();
     } else {
       emitter.GetComponent<Speaker> ().playBad ();
