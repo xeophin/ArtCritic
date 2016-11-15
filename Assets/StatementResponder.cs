@@ -3,8 +3,10 @@ using System.Collections;
 
 public class StatementResponder : MonoBehaviour {
 	public float responseDelay = 1.3f;
-	public float influence = 30;
-	public float repeatMalus = 0.8f;
+	public int correctOpinionBonus = 20;
+	public int incorrectOpinionMalus = -10;
+	public int irrelevantMalus = -5;
+	public int repeatMalus = -10;
 
 	// Use this for initialization
 	void Start () {
@@ -30,21 +32,31 @@ public class StatementResponder : MonoBehaviour {
 	}
 
 	void Respond(Statement st) {
-		float response = st.opinion * GetComponent<Opinionated> ().opinions [st.property];
-		if (st.repeat) {
-			response -= repeatMalus;
+		int response = 0;
+
+		if (st.opinion == GetComponent<Opinionated> ().opinions [st.topic]) {
+			response = correctOpinionBonus;
+		} else {
+			response = incorrectOpinionMalus;
 		}
+
+		if (st.repeat) {
+			response += repeatMalus;
+		}
+
+		if (!st.topic.goodProperties.Contains (st.property) && !st.topic.badProperties.Contains (st.property)) {
+			response += irrelevantMalus;
+		}
+
 		if (response > 0) {
 			GetComponent<Speaker> ().playAgree ();
-			//iTween.PunchPosition(this.gameObject, new Vector3(0, -0.15f, 0), 0.5f);
 		} else {
 			GetComponent<Speaker> ().playDisagree ();
-			//iTween.ShakePosition(this.gameObject, new Vector3(0.08f, 0, 0), 0.5f);
 		}
 
 		GalleryVisitor gv = GetComponent<GalleryVisitor> ();
 		if (gv.reputation > st.emitter.reputation) {
-			st.emitter.ChangeReputation((int) (response * influence));
+			st.emitter.ChangeReputation(response);
 		}
 	}
 }

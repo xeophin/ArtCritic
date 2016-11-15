@@ -17,7 +17,7 @@ public class Fader : MonoBehaviour
   {
     Debug.Log ("Load next level");
     iTween.CameraFadeAdd ();
-    iTween.CameraFadeTo (0f, 3f);
+    iTween.CameraFadeTo (1f, 3f);
     yield return new WaitForSeconds (4f);
     Application.LoadLevel (Application.loadedLevel + 1);
   }
@@ -25,7 +25,7 @@ public class Fader : MonoBehaviour
   public IEnumerator LoadNextLevel (string level)
   {
     iTween.CameraFadeAdd ();
-    iTween.CameraFadeTo (0f, 3f);
+    iTween.CameraFadeTo (1f, 3f);
     yield return new WaitForSeconds (4f);
     Application.LoadLevel (level);
   }

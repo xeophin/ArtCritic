@@ -4,16 +4,17 @@ using System.Collections.Generic;
 using AssemblyCSharp;
 
 public class Opinionated : MonoBehaviour {
-	public Dictionary<ArtProperties, float> opinions = new Dictionary<ArtProperties, float>();
+	public Dictionary<ArtObject, bool> opinions = new Dictionary<ArtObject, bool>();
 	public bool observing = false;
 	public ArtObject observed;
 	public float observationTime;
 	public float minObservationTime = 2; public float maxObservationTime = 5;
 	public float postObservationWait = 2;
+	public bool preventRepeats;
 
 	void RandomizeOpinions() {
-		foreach (ArtProperties p in System.Enum.GetValues((typeof(ArtProperties)))) {
-			opinions.Add(p, Random.Range(-1.0f, 1.0f));
+		foreach (ArtObject ao in FindObjectsOfType<ArtObject> ()) {
+			opinions[ao] = Random.Range(0, 2) == 0;
 		}
 	}
 
@@ -38,14 +39,13 @@ public class Opinionated : MonoBehaviour {
 			if (observationTime <= 0) {
 				gw.WaitUntilMove(postObservationWait);
 				observed = gw.observing;
-				ArtProperties commentProperty = observed.properties[Random.Range(0, observed.properties.Count)];
-				Statement st = GetComponent<StatementMaker>().State(commentProperty, observed, opinions[commentProperty]);
+				List<ArtProperties> ps = (opinions[observed] ? observed.goodProperties : observed.badProperties);
+				ArtProperties commentProperty = ps[Random.Range(0, ps.Count)];
+				if (preventRepeats) {
+					commentProperty = ps[(ps.IndexOf(observed.lastPropertyStated) + 1) % ps.Count];
+				}
+				Statement st = GetComponent<StatementMaker> ().State(commentProperty, observed, opinions[observed]);
 				gw.WaitUntilMove(st.lifespan);
-				/*if (opinions[commentProperty] > 0) {
-					iTween.PunchPosition(this.gameObject, new Vector3(0, -0.2f, 0), 0.5f);
-				} else {
-					iTween.ShakePosition(this.gameObject, new Vector3(0.05f, 0, 0), 0.5f);
-				}*/
 			}
 		}
 	}
